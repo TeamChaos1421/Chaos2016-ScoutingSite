@@ -1,0 +1,3 @@
+#!/bin/sh
+rm -f /var/lock/httpd.pid
+exec /usr/sbin/apache2ctl -D FOREGROUND
