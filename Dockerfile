@@ -26,10 +26,14 @@ ADD etc/service /etc/service/
 RUN apt-get update && apt-get install -y \
 	apache2 \
 	libapache2-mod-python \
+	python-pip \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Port Forwarding
 EXPOSE 80
+
+# More Python stuff
+RUN pip install couchdb
 
 # Apache Config
 RUN rm /etc/apache2/sites-enabled/000-default.conf
